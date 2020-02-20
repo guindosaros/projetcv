@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700|Ubuntu:300,400,500,700&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+            body{
+                font-family: 'Ubuntu', sans-serif;
+                font-size: 1.2rem;
+            }
+
+            .box-mailling{
+                width: 50%;
+                min-height: 30vh;
+                padding: 0;
+                margin: auto;
+            }
+
+            header{
+                background: rgba(160, 159, 159, 0.247);
+                margin: 0;
+                height: 5rem;
+                display: flex;
+                align-items: center!important;
+                justify-content: center!important;
+            }
+
+            header img{
+                height: 3rem;
+                margin: .7rem .7rem 0;
+            }
+
+            header p{
+                font-size: 1.3rem; 
+            }
+
+            .main-content{
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .main-content p{
+                text-align: justify;
+                font-size: 1.2rem;
+            }
+
+            .confirmation{
+                color: white;
+                outline: none;
+                border: 1px solid #777ffe;
+                background: rgba(119, 128, 254, 0.719);
+                padding: .7rem 1.4rem;
+                font-size: 1rem;
+                text-transform: uppercase;
+            }
+
+            .team{
+                font-size: 1rem!important;
+            }
+
+            footer{
+                background: rgba(160, 159, 159, 0.247);
+                padding: .5rem;
+                text-align: center;
+                color: rgba(0, 0, 0, 0.397);
+            }
+
+            footer img{
+                height: 2rem;
+            }
+
+            /* media screen */
+
+            @media screen and (max-width: 720px){
+
+                body h1{
+                    font-size: 1.2rem;
+                }
+
+                body h3{
+                    margin-top: .2rem;
+                    font-size: .7rem!important;
+                }
+
+                body p{
+                    font-size: .6rem!important;
+                }
+
+                header img{
+                    height: 2rem;
+                }
+
+                .box-mailling{
+                    top: 2%;
+                    width: 98%;
+                    margin: auto;
+                }
+            }
+    
+    
+    </style>
+    <!-- cdn css -->
+    <title>NaN Business</title>
+</head>
+<body>
+
+    <div class="box-mailling">
+        <!-- <h1>Abonnement à la Newsletter <br> prise en compte</h1> -->
+        <h1>Accusé de réceptions </h1>
+        <header>
+            <div style="margin:auto; display:flex">
+                <img src="https://nanspace.s3.amazonaws.com/nancistatic/ressources/images/logo-nan.png" alt="logo business"> 
+                <p>NaN Business</p>
+            </div>
+        </header>
+
+        <section class="main-content">
+            <p>
+                <b>Bonjour {{ user.username }} ,</b> <br> <br>
+                Veuillez cliquer sur le lien Suivant pour confirmer votre inscription
+            </p>
+                
+            <button type="button" class="confirmation">
+                
+                {% autoescape off %} 
+                    {{ domain }}{% url 'activate' uidb64=uid token=token %} 
+                {% endautoescape %}
+            </button>
+
+            <p class="team">
+                <b>Guindo Api test</b>
+            </p>
+
+        </section>
+        <footer>
+            <p>copyright &copy; <script>document.write(new Date().getFullYear())</script> NaN-Business NaN Not A Number</p>
+            <p>
+                <a href="https://www.facebook.com/ecolenan/"><img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-facebook-circle-512.png" alt="logo facebook"></a>
+                <a href="https://www.linkedin.com/school/nan-not-a-number/"><img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" alt="logo linkedin"></a>
+                <a href="https://www.youtube.com/channel/UCWB0VDT_tMZ-xOkvjFvlUnw"><img src="https://festival-roc-castel.eu/wp-content/uploads/sites/21/2019/04/logo-youtube-png-rond-2.png" alt="logo youtube"></a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
