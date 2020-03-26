@@ -42,7 +42,7 @@ Maman2019
   
    class MotsMinistre(models.Model):
     titre = models.CharField(max_length=255)
-    photo = models.FileField(upload_to='Mots/')
+    photo = models.ImageField(upload_to='Mots/')
     description =  HTMLField('description')
     
     status = models.BooleanField(default=True)
@@ -58,7 +58,7 @@ Maman2019
 
     class Ministre(models.Model):
       nom = models.CharField(max_length=255)
-      photo = models.FileField(upload_to='ministre/')
+      photo = models.ImageField(upload_to='ministre/')
       description =  HTMLField('description')
       facebook = models.URLField()
       twitter = models.URLField()
@@ -87,7 +87,7 @@ from tinymce import HTMLField
   class Article(models.Model):
     titre = models.TextField()
     description =  HTMLField('description')
-    images = models.FileField(upload_to='Article')
+    images = models.ImageField(upload_to='Article')
     slug = models.SlugField(editable=False, unique=True)
 
     status = models.BooleanField(default=True)
@@ -120,7 +120,7 @@ from tinymce import HTMLField
    class Bienfait(models.Model):
     titre = models.CharField(max_length=255)
     description =  models.TextField()
-    images = models.FileField(upload_to='Article')
+    images = models.ImageField(upload_to='Bienfait')
     
     status = models.BooleanField(default=True)
     date_add = models.DateTimeField(auto_now_add=True)
@@ -176,8 +176,8 @@ from tinymce import HTMLField
     contenue = models.TextField()
 
     status = models.BooleanField(default=False)
-    date_add = models.DateTimeField(auto_now_add=True,null=True)
-    date_upd = models.DateTimeField(auto_now=True,null=True)
+    date_add = models.DateTimeField(auto_now_add=True)
+    date_upd = models.DateTimeField(auto_now=True)
     class Meta:
         verbose_name = "Message"
         verbose_name_plural = "Messages"
@@ -187,5 +187,28 @@ from tinymce import HTMLField
 
   ```
   
-    ## Application mprsite
+  ## Application mprsite
+   ```python
+    class Information(models.Model):
+      numero = models.CharField(max_length=255)
+      adresse = models.CharField(max_length=255)
+      email = models.EmailField()
+      facebook = models.URLField()
+      twitter = models.URLField()
+      logoHeader = models.ImageField(upload_to='logoHeader')
+      logoFooter = models.ImageField(upload_to='logoFooter')
+      
+      
+      status = models.BooleanField(default=True)
+      date_add = models.DateTimeField(auto_now_add=True)
+      date_upd = models.DateTimeField(auto_now=True)
+      class Meta:
+          verbose_name = "Information"
+          verbose_name_plural = "Informations"
+
+      def __str__(self):
+        return self.email
+   
+  ```
+   
   
