@@ -46,10 +46,32 @@ INSTALLED_APPS = [
     'graphene_django',
     'cvapp.apps.CvappConfig',
     'django_admin_generator',
-    'rest_framework_api_key',
-    'rest_framework',
+    'rest_auth.apps.RestAuthConfig',
+
     'corsheaders',
+    
+    # Rest Framework Authentification 
+
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_framework_api_key',
+    
+    
+    # Social Account   and rest registration 
+    
+    'django.contrib.sites',
+    'allauth.account',
+    'rest_auth.registration',
+    
+    # Social Account  parametre
+    
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
 ]
+
+SITE_ID = 1
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

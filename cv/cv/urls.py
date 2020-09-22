@@ -26,6 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('cvapp.urls')),
     url(r'^graphql$',csrf_exempt(GraphQLView.as_view(graphiql=True)),name='graph'),
+    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('admin/filebrowser/', site.urls),
 ]

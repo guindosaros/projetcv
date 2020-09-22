@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views 
+from django.conf.urls import url
 from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     path('login', csrf_exempt(views.islogin),name='login'),
     path('register', csrf_exempt(views.registerUser),name='register'),
     path('activate/<slug:uidb64>/<slug:token>)/', views.activate, name='activate'),
-    # path('login', views.postLogin, name='login_requet'),
+    
    
 ]
