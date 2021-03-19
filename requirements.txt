@@ -8,7 +8,7 @@ django-seed==0.1.9
 drf_dynamic_fields
 django-tinymce4-lite==1.7.5
 django-utils2==2.6.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 graphene==2.1.8
 graphene-django==2.7.1
 graphql-core==2.2.1
